@@ -13,7 +13,7 @@ export const authSlice = createSlice({
   //these are functions that are modifiying the global state
   reducers: {
     setMode: (state) => {
-      state.mode = state.mode == "light" ? "dark" : "light";
+      state.mode = state.mode === "light" ? "dark" : "light";
     },
     setLogin: (state, action) => {
       state.user = action.payload.user;
