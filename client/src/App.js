@@ -12,6 +12,7 @@ function App() {
   const mode = useSelector((state) => state.mode);
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
   //store token on our components
+  //store token on our components
   const isAuth = Boolean(useSelector((state) => state.token));
 
   return (
