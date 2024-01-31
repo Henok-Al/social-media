@@ -10,7 +10,7 @@ const initialState = {
 export const authSlice = createSlice({
   name: "auth",
   initialState,
-  //these are functions that are modifiying the global state
+  //reducers are fun used to modify intialState
   reducers: {
     setMode: (state) => {
       state.mode = state.mode === "light" ? "dark" : "light";
@@ -27,12 +27,15 @@ export const authSlice = createSlice({
       if (state.user) {
         state.user.friends = action.payload.friends;
       } else {
-        console.error("user friends non-existent: (");
+        console.error("user friends non-existent :(");
       }
     },
     setPosts: (state, action) => {
+      state.posts = action.payload.posts;
+    },
+    setPost: (state, action) => {
       const updatedPosts = state.posts.map((post) => {
-        if (post._id === action.payload._id) return action.payload.post;
+        if (post._id === action.payload.post._id) return action.payload.post;
         return post;
       });
       state.posts = updatedPosts;
